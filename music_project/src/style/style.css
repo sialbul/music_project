@@ -1,0 +1,32 @@
+body {
+  font-family: 'Urbanist', sans-serif;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 5px;
+  width: 60vw;
+  background-color: lightgray;
+  text-align: center;
+}
+
+.field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+input[type=text] {
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 80vw;
+  }
+}
+/*# sourceMappingURL=style.css.map */
