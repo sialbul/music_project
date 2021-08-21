@@ -19,6 +19,10 @@ input[type=text] {
     border-radius: 5px;
 }
 
+.renderResult {
+    text-decoration: none;
+}
+
 @media screen and (max-width: 768px) {
     .container {
         width: 80vw;

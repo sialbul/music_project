@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../style/style.css";
 import axios from "axios";
+import moment from "moment";
 
 export default function SearchBar() {
     const [term, setTerm] = useState("korn");
@@ -27,11 +28,15 @@ export default function SearchBar() {
     }, [term]);
 
     const renderedResults = results.map((result) => {
+        const date = moment(`${result.releaseDate}`).format("DD/MM/YYYY");
         return (
             <div className="renderedDiv">
-                <a href={result.collectionViewUrl} target="_black">
+                <a
+                    className="renderResult"
+                    href={result.collectionViewUrl}
+                    target="_black">
                     <div className="header">{result.trackName}</div>
-                    {result.releaseDate}
+                    <div>{date}</div>
                     <img src={result.artworkUrl100} />
                 </a>
             </div>
