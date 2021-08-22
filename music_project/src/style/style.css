@@ -6,8 +6,12 @@ body {
   margin: 0 auto;
   padding: 5px;
   width: 60vw;
-  background-color: lightgray;
+  background-color: black;
   text-align: center;
+  color: white;
+  border-radius: 10px;
+  background-image: -webkit-gradient(linear, left top, right top, from(#d948dd), color-stop(#dd48d7), color-stop(#e148d2), color-stop(#e449cc), color-stop(#e74ac7), color-stop(#e24ecb), color-stop(#dd51cf), color-stop(#d755d3), color-stop(#c55ce0), color-stop(#b064ec), color-stop(#966bf6), to(#7572ff));
+  background-image: linear-gradient(to right, #d948dd, #dd48d7, #e148d2, #e449cc, #e74ac7, #e24ecb, #dd51cf, #d755d3, #c55ce0, #b064ec, #966bf6, #7572ff);
 }
 
 .field {
@@ -26,6 +30,20 @@ input[type=text] {
 
 .renderResult {
   text-decoration: none;
+  color: white;
+}
+
+.renderResult :hover {
+  color: blue;
+}
+
+.renderedDiv {
+  color: white;
+}
+
+.header {
+  color: white;
+  text-transform: uppercase;
 }
 
 @media screen and (max-width: 768px) {

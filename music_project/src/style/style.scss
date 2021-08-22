@@ -6,8 +6,11 @@ body {
     margin: 0 auto;
     padding: 5px;
     width: 60vw;
-    background-color: lightgray;
+    background-color: black;
     text-align: center;
+    color: white;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, #d948dd, #dd48d7, #e148d2, #e449cc, #e74ac7, #e24ecb, #dd51cf, #d755d3, #c55ce0, #b064ec, #966bf6, #7572ff);
 }
 
 .field {
@@ -21,6 +24,19 @@ input[type=text] {
 
 .renderResult {
     text-decoration: none;
+    color: white;
+    & :hover {
+        color: blue;
+    }
+}
+
+.renderedDiv {
+    color: white;
+}
+
+.header {
+    color: white;
+    text-transform: uppercase;
 }
 
 @media screen and (max-width: 768px) {

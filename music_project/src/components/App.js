@@ -9,6 +9,7 @@ export default class App extends Component {
     render() {
         return (
             <div className="container">
+                <h2>Album Search</h2>
                 <SearchBar onFormSubmit={this.onTermSubmit} />
             </div>
         );
