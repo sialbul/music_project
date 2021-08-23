@@ -1,4 +1,5 @@
 @import "_radio";
+@import "_variable";
 body {
     font-family: 'Urbanist', sans-serif;
 }
@@ -7,9 +8,9 @@ body {
     margin: 0 auto;
     padding: 5px;
     width: 60vw;
-    background-color: black;
+    background-color: $$black;
     text-align: center;
-    color: darkblue;
+    color: $$blue;
     border-radius: 10px;
     background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
 }
@@ -18,7 +19,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-bottom: 6px solid white;
+    border-bottom: 6px solid $white;
     width: 100%;
 }
 
@@ -53,12 +54,12 @@ input {
 }
 
 input[type=reset] {
-    background-color: darkblue;
-    color: white;
+    background-color: $blue;
+    color: $white;
     width: 55px;
     &:hover {
-        background-color: red;
-        color: white;
+        background-color: $red;
+        color: $white;
         font-weight: bold;
     }
 }
@@ -73,15 +74,15 @@ select {
 
 .renderResult {
     text-decoration: none;
-    color: darkblue;
+    color: $blue;
     & :hover {
-        color: black;
+        color: $black;
         font-weight: bold;
     }
 }
 
 .header1 {
-    color: darkblue;
+    color: $blue;
     text-transform: uppercase;
 }
 

@@ -1,3 +1,4 @@
+@import "_variable";
 .wrapper {
     display: flex;
     gap: 2rem
@@ -24,7 +25,7 @@ input[type=radio] {
     height: 8px;
     padding: 5px;
     border-radius: 50%;
-    border: 2px solid darkblue;
+    border: 2px solid $blue;
 }
 
 .radio-button-inner {
@@ -34,7 +35,7 @@ input[type=radio] {
     height: 100%;
     width: 100%;
     border-radius: 50%;
-    background: red;
+    background: $red;
     visibility: hidden;
     opacity: 0;
     transform: scale(0);
@@ -43,7 +44,7 @@ input[type=radio] {
 
 .radio-label {
     font-size: 1.1rem;
-    color: darkblue;
+    color: $blue;
 }
 
 @keyframes pulse {
@@ -70,7 +71,7 @@ input[type=radio] {
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    background: red;
+    background: $red;
     animation: pulse 0.5s linear;
 }
 
@@ -85,11 +86,11 @@ input:checked~.radio-pulse {
 }
 
 input:checked~.radio-button {
-    border-color: red;
+    border-color: $red;
 }
 
 input:checked~.radio-label {
-    color: red;
+    color: $red;
     @media screen and (max-width: 768px) {
         .container {
             width: 80vw;
