@@ -8,13 +8,13 @@ body {
   width: 60vw;
   background-color: black;
   text-align: center;
-  color: white;
+  color: darkblue;
   border-radius: 10px;
-  background-image: -webkit-gradient(linear, left top, right top, from(#d948dd), color-stop(#dd48d7), color-stop(#e148d2), color-stop(#e449cc), color-stop(#e74ac7), color-stop(#e24ecb), color-stop(#dd51cf), color-stop(#d755d3), color-stop(#c55ce0), color-stop(#b064ec), color-stop(#966bf6), to(#7572ff));
-  background-image: linear-gradient(to right, #d948dd, #dd48d7, #e148d2, #e449cc, #e74ac7, #e24ecb, #dd51cf, #d755d3, #c55ce0, #b064ec, #966bf6, #7572ff);
+  background-image: -webkit-gradient(linear, left bottom, right top, from(#d16ba5), color-stop(#c777b9), color-stop(#ba83ca), color-stop(#aa8fd8), color-stop(#9a9ae1), color-stop(#8aa7ec), color-stop(#79b3f4), color-stop(#69bff8), color-stop(#52cffe), color-stop(#41dfff), color-stop(#46eefa), to(#5ffbf1));
+  background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
 }
 
-.field {
+.logoField {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -22,33 +22,133 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 6px solid white;
+  width: 100%;
 }
 
-input[type=text] {
+.field,
+.rangeField {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+input {
+  font-family: 'Urbanist', sans-serif;
   border-radius: 5px;
+  margin: 0 5px;
+  font-size: 16px;
+}
+
+.resultAlbum {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  text-align: left;
+}
+
+.resultImage,
+.resultInfo {
+  margin: 0 20px;
+  line-height: 35px;
+}
+
+input[type=reset] {
+  background-color: darkblue;
+  color: white;
+}
+
+input[type=reset]:hover {
+  background-color: white;
+  color: darkblue;
+  font-weight: bold;
+}
+
+select {
+  border-radius: 5px;
+  font-family: 'Urbanist', sans-serif;
+  margin: 0 5px;
 }
 
 .renderResult {
   text-decoration: none;
-  color: white;
+  color: darkblue;
 }
 
 .renderResult :hover {
-  color: blue;
+  color: black;
+  font-weight: bold;
 }
 
-.renderedDiv {
-  color: white;
-}
-
-.header {
-  color: white;
+.header1 {
+  color: darkblue;
   text-transform: uppercase;
+}
+
+.navLogo {
+  width: 70px;
+  height: 70px;
+  margin: 10px;
+}
+
+.optionField {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.timeRange {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 @media screen and (max-width: 768px) {
   .container {
     width: 80vw;
+  }
+  .field {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
 /*# sourceMappingURL=style.css.map */
