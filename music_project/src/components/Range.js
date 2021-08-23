@@ -9,51 +9,71 @@ export default function Range({
 }) {
     return (
         <form className="optionField">
-            <div className="firstFive">
-                <input
-                    type="radio"
-                    name="checkRadio"
-                    className="firstCheck"
-                    onClick={() => {
-                        setFirstchecked(true);
-                        setLastchecked(false);
-                        setAfterchecked(false);
-                        setBeforechecked(false);
-                    }}
-                />{" "}
-                First 5 albums
+            <div className="wrapper">
+                <label>
+                    <input
+                        type="radio"
+                        name="checkRadio"
+                        className="firstCheck"
+                        onClick={() => {
+                            setFirstchecked(true);
+                            setLastchecked(false);
+                            setAfterchecked(false);
+                            setBeforechecked(false);
+                        }}
+                    />{" "}
+                    <span className="radio-pulse" />
+                    <span className="radio-button">
+                        <span className="radio-button-inner" />
+                    </span>
+                    <span className="radio-label">First 5 albums</span>
+                </label>
             </div>
 
-            <div className="lastFive">
+            <div className="wrapper">
                 {" "}
-                <input
-                    type="radio"
-                    name="checkRadio"
-                    className="lastCheck"
-                    onClick={() => {
-                        setFirstchecked(false);
-                        setLastchecked(true);
-                        setAfterchecked(false);
-                        setBeforechecked(false);
-                    }}
-                />{" "}
-                Last 5 albums
+                <label>
+                    <input
+                        type="radio"
+                        name="checkRadio"
+                        className="lastCheck"
+                        onClick={() => {
+                            setFirstchecked(false);
+                            setLastchecked(true);
+                            setAfterchecked(false);
+                            setBeforechecked(false);
+                        }}
+                    />{" "}
+                    <span className="radio-pulse" />
+                    <span className="radio-button">
+                        <span className="radio-button-inner" />
+                    </span>
+                    <span className="radio-label">Last 5 albums</span>
+                </label>
             </div>
 
             <div className="timeRange">
                 {" "}
-                <input
-                    type="radio"
-                    name="checkRadio"
-                    className="beforeButton"
-                    onClick={() => {
-                        setFirstchecked(false);
-                        setLastchecked(false);
-                        setAfterchecked(false);
-                        setBeforechecked(true);
-                    }}
-                />{" "}
-                Before
+                <div className="wrapper">
+                    <label>
+                        <input
+                            type="radio"
+                            name="checkRadio"
+                            className="beforeButton"
+                            onClick={() => {
+                                setFirstchecked(false);
+                                setLastchecked(false);
+                                setAfterchecked(false);
+                                setBeforechecked(true);
+                            }}
+                        />{" "}
+                        <span className="radio-pulse" />
+                        <span className="radio-button">
+                            <span className="radio-button-inner" />
+                        </span>
+                        <span className="radio-label">Before</span>
+                    </label>
+                </div>
                 <select onChange={(e) => setYear(e.target.value)}>
                     {" "}
                     <option value="2020">2020</option>
@@ -65,18 +85,26 @@ export default function Range({
                     <option value="1960">1960</option>
                     <option value="1950">1950</option>
                 </select>
-                <input
-                    type="radio"
-                    name="checkRadio"
-                    className="afterButton"
-                    onClick={() => {
-                        setFirstchecked(false);
-                        setLastchecked(false);
-                        setAfterchecked(true);
-                        setBeforechecked(false);
-                    }}
-                />{" "}
-                After
+                <div className="wrapper timeRadio">
+                    <label>
+                        <input
+                            type="radio"
+                            name="checkRadio"
+                            className="afterButton"
+                            onClick={() => {
+                                setFirstchecked(false);
+                                setLastchecked(false);
+                                setAfterchecked(true);
+                                setBeforechecked(false);
+                            }}
+                        />{" "}
+                        <span className="radio-pulse" />
+                        <span className="radio-button">
+                            <span className="radio-button-inner" />
+                        </span>
+                        <span className="radio-label">After</span>
+                    </label>
+                </div>
             </div>
             <input
                 type="reset"
