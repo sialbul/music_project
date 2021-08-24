@@ -7,7 +7,7 @@ This app helps the users find their favorite artist`s all albums. Search can be 
 ## Technical info
 This is a responsive website which was built  by React Hooks, SCSS. 
 iTunes JSON API was used to get the album results. 
-4 options were created for the user to filter the results. Input radio objects which have dank effect created by the SCSS animation were used for the buttons of the options. 
+4 options were created for the user to filter the results. Radio buttons which have dank effect created by the SCSS animation were used for the options. 
 Option buttons:
 *	First 5 albums option shows the user the albums in ascending order by the release dates of the albums. 
 *	Last 5 albums option shows the user the albums in descending order by the release dates of the albums.
