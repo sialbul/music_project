@@ -14,8 +14,7 @@ Option buttons:
 *	Before or after option shows the user the albums before or after the selected year.  
 *	Reset button clears all the selection and list all the album results.
 
-![iTunesImage](![itunesImage](https://user-images.githubusercontent.com/46114540/130662603-1ae18a2e-7bbb-4556-a06f-37c10a8eb327.png)
-)
+![iTunesImage](![itunesImage](https://user-images.githubusercontent.com/46114540/130662603-1ae18a2e-7bbb-4556-a06f-37c10a8eb327.png))
 
 ##### This project was created and is maintained by: M.Sibel Baslamisli
  * Live version: https://itunesalbum.herokuapp.com/
