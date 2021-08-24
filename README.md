@@ -8,7 +8,7 @@
 * [Setup](#setup)
 
 ## General info
-This app helps you to find your favorite artist`s album. Search can be made by artist name or album name. If user wants to see the album link in Itunes, they can click album name. 	
+This app helps the user to find their favorite artist`s all albums. Search can be made by artist name or album name. If user wants to see the album with songs in Itunes page, they need to click album name. 	
 ## Technologies
 Project is created with:
 * Reach Hooks
