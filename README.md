@@ -7,7 +7,7 @@
 * [Technical info](#technical-info)
 
 ## General info
-This app helps the users to find their favorite artist`s all albums. Search can be made by artist name or album name. If the user wants to see the album with songs in iTunes page, they need to click album name. 	
+This app helps the users find their favorite artist`s all albums. Search can be made by the artist name or the album name. If the user wants to see the album with songs in iTunes page, they need to click the album name on the result list. 	
 ## Technical info
 The website was built  by React Hooks, SCSS and has a mobile view. iTunes JSON API was used to get the album results. 
 4 options were created for the user to filter the results. Input radio objects  which have dank effect created by SCSS animation were used for the buttons of the options. 
