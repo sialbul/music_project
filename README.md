@@ -18,3 +18,10 @@ Option buttons:
 *	Before or after option shows the user the albums before or after the selected year.  
 *	Reset button clears all the selection and list all the album results.
 
+##This project was created and is maintained by:
+M.Sibel Baslamisli
+Live version: https://itunesalbum.herokuapp.com/
+This project's github repo: https://github.com/sialbul/music_project
+Me on github: https://github.com/sialbul
+Contact me at: sbaslamisli@yahoo.com for more info about this project.
+
