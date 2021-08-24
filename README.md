@@ -2,10 +2,6 @@
 
 #### This is a project which has been built by React Hooks to show the albums of the users` favorite artists.
 
-## Table of contents
-* [General info](#general-info)
-* [Technical info](#technical-info)
-
 ## General info
 This app helps the users find their favorite artist`s all albums. Search can be made by the artist name or the album name. If the user wants to see the album with songs in iTunes page, they need to click the album name on the result list. 	
 ## Technical info
