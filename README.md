@@ -1,6 +1,6 @@
 # Music Project
 
-#### This is a project which is built by React.js to show the albums of the users` favorite artist.
+#### This is a project which has been built by React Hooks to show the albums of the users` favorite artists.
 
 ## Table of contents
 * [General info](#general-info)
