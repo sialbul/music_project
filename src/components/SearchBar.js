@@ -17,10 +17,6 @@ export default function SearchBar() {
 
     const size = firstchecked || lastchecked ? 5 : 200;
 
-    // console.log("firstchecked", firstchecked);
-    // console.log("size", size);
-    console.log("year:", year);
-
     useEffect(() => {
         const timerId = setTimeout(() => {
             setDebouncedTerm(term);
@@ -107,6 +103,7 @@ export default function SearchBar() {
         };
         searchAudio();
     }, [
+        term,
         debouncedTerm,
         firstchecked,
         lastchecked,
@@ -151,7 +148,7 @@ export default function SearchBar() {
             <div className="logoField">
                 <div className="field">
                     {" "}
-                    <img className="navLogo" src={Logo} />{" "}
+                    <img alt="albumImage" className="navLogo" src={Logo} />{" "}
                     <h1> ALBUM SEARCH</h1>
                     <div>
                         <span>Search </span>
