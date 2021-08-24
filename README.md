@@ -1,16 +1,18 @@
 # Music Project
 
-#### This is a project which is build by React to show the albums of your favorite artist.
+#### This is a project which is built by React.js to show the albums of the users` favorite artist.
 
 ## Table of contents
 * [General info](#general-info)
-* [Technologies](#technologies)
-* [Setup](#setup)
+* [Technical info](#technical-info)
 
 ## General info
-This app helps the user to find their favorite artist`s all albums. Search can be made by artist name or album name. If user wants to see the album with songs in Itunes page, they need to click album name. 	
-## Technologies
-Project is created with:
-* Reach Hooks
-* SCSS
+This app helps the users to find their favorite artist`s all albums. Search can be made by artist name or album name. If the user wants to see the album with songs in iTunes page, they need to click album name. 	
+## Technical info
+The website was built  by React Hooks, SCSS and has a mobile view. iTunes JSON API was used to get the album results. 
+4 options were created for the user to filter the results. Input radio objects  which have dank effect created by SCSS animation were used for the buttons of the options. 
+*	First 5 albums option shows the user the albums in ascending order by the release dates of the albums. 
+*	Last 5 albums option shows the user the albums in descending order by the release dates of the albums.
+*	Before or after option shows the user the albums before or after the selected year.  
+*	Reset button clears all the selection and list all the album results.
 
