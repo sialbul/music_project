@@ -29,7 +29,7 @@ export default function SearchBar() {
     useEffect(() => {
         const searchAudio = async () => {
             const { data } = await axios.get(
-                "https://itunes.apple.com/search?",
+                "https://itunes.apple.com/search",
                 {
                     params: {
                         term: term,
@@ -57,12 +57,6 @@ export default function SearchBar() {
                     )
                 );
             } else if (beforechecked) {
-                console.log(
-                    "releaseDate:",
-                    data.results[0].releaseDate,
-                    "year:",
-                    year
-                );
                 setResults(
                     data.results
                         .sort(
