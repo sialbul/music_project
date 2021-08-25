@@ -107,6 +107,7 @@ export default function Range({
                 </div>
             </div>
             <input
+                className="optionReset"
                 type="reset"
                 value="Reset"
                 onClick={() => {

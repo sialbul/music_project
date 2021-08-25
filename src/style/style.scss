@@ -33,11 +33,12 @@ body {
     width: 100%;
 }
 
-input {
+input[type="text"] {
     font-family: 'Urbanist', sans-serif;
-    border-radius: 5px;
-    margin: 0 5px;
+    margin-left: 5px;
     font-size: 16px;
+    border-color: white;
+    border: 1px solid white;
 }
 
 .resultAlbum {
@@ -54,7 +55,7 @@ input {
     line-height: 35px;
 }
 
-input[type=reset] {
+.optionReset {
     background-color: $blue;
     color: $white;
     width: 55px;
@@ -108,6 +109,21 @@ select {
     align-items: center;
 }
 
+.searchReset {
+    height: 24px;
+    width: 15px;
+    padding: 0;
+    margin: 1px;
+    border: 1px solid white;
+    background-color: $blue;
+    color: gray;
+    cursor: pointer;
+    &:hover {
+        background-color: red;
+        color: white;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .container {
         width: 80vw;
@@ -129,7 +145,7 @@ select {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         justify-items: center;
     }
-    input[type=reset] {
+    .optionReset {
         height: 30px;
         width: 65px;
         margin-top: 10px;

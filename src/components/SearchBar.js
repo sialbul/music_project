@@ -14,6 +14,7 @@ export default function SearchBar() {
     const [beforechecked, setBeforechecked] = useState(false);
     const [afterchecked, setAfterchecked] = useState(false);
     const [year, setYear] = useState(2020);
+    const [artisname, setArtistname] = useState("");
 
     const size = firstchecked || lastchecked ? 5 : 200;
 
@@ -29,7 +30,7 @@ export default function SearchBar() {
     useEffect(() => {
         const searchAudio = async () => {
             const { data } = await axios.get(
-                "https://itunes.apple.com/search",
+                "https://itunes.apple.com/search?",
                 {
                     params: {
                         term: debouncedTerm,
@@ -99,6 +100,13 @@ export default function SearchBar() {
         year
     ]);
 
+    useEffect(() => {
+        const artistName = () => {
+            return setArtistname(debouncedTerm);
+        };
+        artistName();
+    }, [debouncedTerm]);
+    console.log(artisname);
     const renderedResults = results.slice(0, size).map((result) => {
         const date = moment(`${result.releaseDate}`).format("DD/MM/YYYY");
         return (
@@ -135,6 +143,10 @@ export default function SearchBar() {
     };
     returnAr();
 
+    const onFormSubmit = (event) => {
+        event.preventDefault();
+    };
+
     return (
         <div className="searchContainer">
             <div className="logoField">
@@ -143,13 +155,23 @@ export default function SearchBar() {
                     <img alt="albumImage" className="navLogo" src={Logo} />{" "}
                     <h1> ALBUM SEARCH</h1>
                     <div>
-                        <span>Search </span>
-                        <input
-                            placeholder="Artist Name"
-                            type="text"
-                            value={term}
-                            onChange={(e) => setTerm(e.target.value)}
-                        />
+                        <form onSubmit={onFormSubmit}>
+                            <span>Search </span>
+                            <input
+                                placeholder="Artist Name"
+                                type="text"
+                                value={term}
+                                onChange={(e) => setTerm(e.target.value)}
+                            />
+                            <input
+                                className="searchReset"
+                                type="reset"
+                                value="X"
+                                onClick={() => {
+                                    setTerm("");
+                                }}
+                            />
+                        </form>
                     </div>
                 </div>
 
@@ -164,7 +186,7 @@ export default function SearchBar() {
                 </div>
             </div>
 
-            <h2 className="header1">{term}</h2>
+            <h2 className="header1">{artisname}</h2>
             <div>
                 {returnAr() == 0 ? (
                     <h3>No result found! Please search again!</h3>
