@@ -30,7 +30,7 @@ export default function SearchBar() {
     useEffect(() => {
         const searchAudio = async () => {
             const { data } = await axios.get(
-                "https://itunes.apple.com/search?",
+                "https://itunes.apple.com/search",
                 {
                     params: {
                         term: debouncedTerm,
