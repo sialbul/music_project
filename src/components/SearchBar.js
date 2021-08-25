@@ -32,7 +32,7 @@ export default function SearchBar() {
                 "https://itunes.apple.com/search?",
                 {
                     params: {
-                        term: debouncedTerm,
+                        term: term,
                         country: "US",
                         types: "artists",
                         media: "music",
@@ -42,7 +42,13 @@ export default function SearchBar() {
                     }
                 }
             );
-            if (firstchecked) {
+            if (
+                lastchecked ||
+                (!lastchecked &&
+                    !firstchecked &&
+                    !beforechecked &&
+                    !afterchecked)
+            ) {
                 setResults(
                     data.results.sort(
                         (a, b) =>
