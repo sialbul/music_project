@@ -29,10 +29,10 @@ export default function SearchBar() {
     useEffect(() => {
         const searchAudio = async () => {
             const { data } = await axios.get(
-                "https://itunes.apple.com/search?",
+                "https://itunes.apple.com/search",
                 {
                     params: {
-                        term: term,
+                        term: debouncedTerm,
                         country: "US",
                         types: "artists",
                         media: "music",
@@ -42,17 +42,12 @@ export default function SearchBar() {
                     }
                 }
             );
-            if (
-                lastchecked ||
-                (!lastchecked &&
-                    !firstchecked &&
-                    !beforechecked &&
-                    !afterchecked)
-            ) {
+
+            if (firstchecked) {
                 setResults(
                     data.results.sort(
                         (a, b) =>
-                            new Date(b.releaseDate) - new Date(a.releaseDate)
+                            new Date(a.releaseDate) - new Date(b.releaseDate)
                     )
                 );
             } else if (beforechecked) {
@@ -89,7 +84,7 @@ export default function SearchBar() {
                 setResults(
                     data.results.sort(
                         (a, b) =>
-                            new Date(a.releaseDate) - new Date(b.releaseDate)
+                            new Date(b.releaseDate) - new Date(a.releaseDate)
                     )
                 );
             }
