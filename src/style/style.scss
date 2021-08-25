@@ -6,11 +6,12 @@ body {
 
 .container {
     margin: 0 auto;
-    padding: 5px;
+    padding: 10px;
     width: 60vw;
-    background-color: $$black;
+    min-height: 100vh;
+    background-color: $black;
     text-align: center;
-    color: $$blue;
+    color: $blue;
     border-radius: 10px;
     background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
 }

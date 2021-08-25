@@ -130,6 +130,11 @@ export default function SearchBar() {
         );
     });
 
+    const returnAr = () => {
+        return renderedResults.length;
+    };
+    returnAr();
+
     return (
         <div className="searchContainer">
             <div className="logoField">
@@ -160,10 +165,17 @@ export default function SearchBar() {
             </div>
 
             <h2 className="header1">{term}</h2>
-            <h3>Total {renderedResults.length} albums</h3>
-
-            <hr />
-            <div>{renderedResults}</div>
+            <div>
+                {returnAr() == 0 ? (
+                    <h3>No result found! Please search again!</h3>
+                ) : (
+                    <div>
+                        <h3>Total {returnAr()} albums</h3>
+                        <hr />
+                        <div>{renderedResults}</div>{" "}
+                    </div>
+                )}
+            </div>
         </div>
     );
 }
