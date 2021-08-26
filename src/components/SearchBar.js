@@ -20,6 +20,7 @@ export default function SearchBar() {
 
     const size = firstchecked || lastchecked ? 5 : 200;
 
+    //instead of sending the api request every type, it waits 1 second and if there is no typing anymore, it sends the request
     useEffect(() => {
         const timerId = setTimeout(() => {
             setDebouncedTerm(term);
@@ -50,6 +51,7 @@ export default function SearchBar() {
                         }
                     );
                     setIsError(false);
+                    //sort for first 5 albums
                     if (firstchecked) {
                         setResults(
                             data.results.sort(
@@ -58,6 +60,7 @@ export default function SearchBar() {
                                     new Date(b.releaseDate)
                             )
                         );
+                        //sort&filter for before years option
                     } else if (beforechecked) {
                         setResults(
                             data.results
@@ -73,6 +76,7 @@ export default function SearchBar() {
                                             .slice(0, 4) < year
                                 )
                         );
+                        //sort&filter for after years option
                     } else if (afterchecked) {
                         setResults(
                             data.results
@@ -89,6 +93,7 @@ export default function SearchBar() {
                                 )
                         );
                     } else {
+                        //default result with descending date
                         setResults(
                             data.results.sort(
                                 (a, b) =>
@@ -117,13 +122,14 @@ export default function SearchBar() {
         afterchecked,
         year
     ]);
-
+    //to get artist`s name from results
     useEffect(() => {
         const artistName = () => {
             return setArtistname(debouncedTerm);
         };
         artistName();
     }, [debouncedTerm]);
+    //map the results
     const renderedResults = results?.slice(0, size).map((result) => {
         const date = moment(`${result.releaseDate}`).format("DD/MM/YYYY");
         return (
