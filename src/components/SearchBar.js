@@ -36,7 +36,7 @@ export default function SearchBar() {
                 try {
                     const { data } = await axios.get(
                         "https://itunes.apple.com/search",
-                        { mode: "cors" },
+
                         {
                             params: {
                                 term: debouncedTerm,
