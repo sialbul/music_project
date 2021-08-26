@@ -15,6 +15,8 @@ export default function SearchBar() {
     const [afterchecked, setAfterchecked] = useState(false);
     const [year, setYear] = useState(2020);
     const [artisname, setArtistname] = useState("");
+    const [isError, setIsError] = useState(false);
+    const [isLoaded, setIsloaded] = useState(false);
 
     const size = firstchecked || lastchecked ? 5 : 200;
 
@@ -28,69 +30,84 @@ export default function SearchBar() {
     }, [term]);
 
     useEffect(() => {
-        const searchAudio = async () => {
-            const { data } = await axios.get(
-                "https://itunes.apple.com/search",
-                {
-                    params: {
-                        term: debouncedTerm,
-                        country: "US",
-                        types: "artists",
-                        media: "music",
-                        limit: 100,
-                        entity: "album",
-                        collectionType: "album"
+        if (debouncedTerm.length > 0) {
+            setIsloaded(false);
+            const searchAudio = async () => {
+                try {
+                    const { data } = await axios.get(
+                        "https://itunes.apple.com/search",
+                        {
+                            params: {
+                                term: debouncedTerm,
+                                country: "US",
+                                types: "artists",
+                                media: "music",
+                                limit: 100,
+                                entity: "album",
+                                collectionType: "album"
+                            }
+                        }
+                    );
+                    setIsError(false);
+                    if (firstchecked) {
+                        setResults(
+                            data.results.sort(
+                                (a, b) =>
+                                    new Date(a.releaseDate) -
+                                    new Date(b.releaseDate)
+                            )
+                        );
+                    } else if (beforechecked) {
+                        setResults(
+                            data.results
+                                .sort(
+                                    (a, b) =>
+                                        new Date(b.releaseDate) -
+                                        new Date(a.releaseDate)
+                                )
+                                .filter(
+                                    (r) =>
+                                        new Date(r.releaseDate)
+                                            .toISOString()
+                                            .slice(0, 4) < year
+                                )
+                        );
+                    } else if (afterchecked) {
+                        setResults(
+                            data.results
+                                .sort(
+                                    (a, b) =>
+                                        new Date(b.releaseDate) -
+                                        new Date(a.releaseDate)
+                                )
+                                .filter(
+                                    (r) =>
+                                        new Date(r.releaseDate)
+                                            .toISOString()
+                                            .slice(0, 4) >= year
+                                )
+                        );
+                    } else {
+                        setResults(
+                            data.results.sort(
+                                (a, b) =>
+                                    new Date(b.releaseDate) -
+                                    new Date(a.releaseDate)
+                            )
+                        );
                     }
+                    setIsloaded(true);
+                } catch (error) {
+                    console.error(error);
+                    setResults(null);
+                    setIsloaded(true);
+                    setIsError(true);
                 }
-            );
-
-            if (firstchecked) {
-                setResults(
-                    data.results.sort(
-                        (a, b) =>
-                            new Date(a.releaseDate) - new Date(b.releaseDate)
-                    )
-                );
-            } else if (beforechecked) {
-                setResults(
-                    data.results
-                        .sort(
-                            (a, b) =>
-                                new Date(b.releaseDate) -
-                                new Date(a.releaseDate)
-                        )
-                        .filter(
-                            (r) =>
-                                new Date(r.releaseDate)
-                                    .toISOString()
-                                    .slice(0, 4) < year
-                        )
-                );
-            } else if (afterchecked) {
-                setResults(
-                    data.results
-                        .sort(
-                            (a, b) =>
-                                new Date(b.releaseDate) -
-                                new Date(a.releaseDate)
-                        )
-                        .filter(
-                            (r) =>
-                                new Date(r.releaseDate)
-                                    .toISOString()
-                                    .slice(0, 4) >= year
-                        )
-                );
-            } else {
-                setResults(
-                    data.results.sort(
-                        (a, b) =>
-                            new Date(b.releaseDate) - new Date(a.releaseDate)
-                    )
-                );
-            }
-        };
-        searchAudio();
+            };
+            searchAudio();
+        } else {
+            setResults([]);
+        }
     }, [
         debouncedTerm,
         firstchecked,
@@ -106,8 +123,7 @@ export default function SearchBar() {
         };
         artistName();
     }, [debouncedTerm]);
-    console.log(artisname);
-    const renderedResults = results.slice(0, size).map((result) => {
+    const renderedResults = results?.slice(0, size).map((result) => {
         const date = moment(`${result.releaseDate}`).format("DD/MM/YYYY");
         return (
             <div className="renderedDiv" key={result.collectionId}>
@@ -137,11 +153,6 @@ export default function SearchBar() {
             </div>
         );
     });
-
-    const returnAr = () => {
-        return renderedResults.length;
-    };
-    returnAr();
 
     const onFormSubmit = (event) => {
         event.preventDefault();
@@ -187,17 +198,18 @@ export default function SearchBar() {
             </div>
 
             <h2 className="header1">{artisname}</h2>
-            <div>
-                {returnAr() == 0 ? (
-                    <h3>No result found! Please search again!</h3>
-                ) : (
-                    <div>
-                        <h3>Total {returnAr()} albums</h3>
-                        <hr />
-                        <div>{renderedResults}</div>{" "}
-                    </div>
-                )}
-            </div>
+            {isError && <div>An error occurred fetching data!</div>}
+
+            {isLoaded && renderedResults?.length > 0 && (
+                <div>
+                    <h3>Total {renderedResults.length} albums</h3>
+                    <hr />
+                    <div>{renderedResults}</div>{" "}
+                </div>
+            )}
+            {isLoaded && renderedResults?.length === 0 && (
+                <h3>No result found! Please search again!</h3>
+            )}
         </div>
     );
 }

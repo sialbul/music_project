@@ -114,13 +114,13 @@ select {
     width: 15px;
     padding: 0;
     margin: 1px;
-    border: 1px solid white;
+    border: 1px solid $white;
     background-color: $blue;
-    color: gray;
+    color: $white;
     cursor: pointer;
     &:hover {
-        background-color: red;
-        color: white;
+        background-color: $red;
+        color: $white;
     }
 }
 
