@@ -51,56 +51,49 @@ export default function SearchBar() {
                         }
                     );
                     setIsError(false);
+
+                    const sortData = () => {
+                        return data.results.sort(
+                            (a, b) =>
+                                new Date(a.releaseDate) -
+                                new Date(b.releaseDate)
+                        );
+                    };
+
+                    const sortDesData = () => {
+                        return data.results.sort(
+                            (a, b) =>
+                                new Date(b.releaseDate) -
+                                new Date(a.releaseDate)
+                        );
+                    };
+                    console.log(sortData);
                     //sort for first 5 albums
                     if (firstchecked) {
-                        setResults(
-                            data.results.sort(
-                                (a, b) =>
-                                    new Date(a.releaseDate) -
-                                    new Date(b.releaseDate)
-                            )
-                        );
+                        setResults(sortData);
                         //sort&filter for before years option
                     } else if (beforechecked) {
                         setResults(
-                            data.results
-                                .sort(
-                                    (a, b) =>
-                                        new Date(b.releaseDate) -
-                                        new Date(a.releaseDate)
-                                )
-                                .filter(
-                                    (r) =>
-                                        new Date(r.releaseDate)
-                                            .toISOString()
-                                            .slice(0, 4) < year
-                                )
+                            sortDesData().filter(
+                                (r) =>
+                                    new Date(r.releaseDate)
+                                        .toISOString()
+                                        .slice(0, 4) < year
+                            )
                         );
                         //sort&filter for after years option
                     } else if (afterchecked) {
                         setResults(
-                            data.results
-                                .sort(
-                                    (a, b) =>
-                                        new Date(b.releaseDate) -
-                                        new Date(a.releaseDate)
-                                )
-                                .filter(
-                                    (r) =>
-                                        new Date(r.releaseDate)
-                                            .toISOString()
-                                            .slice(0, 4) >= year
-                                )
+                            sortDesData().filter(
+                                (r) =>
+                                    new Date(r.releaseDate)
+                                        .toISOString()
+                                        .slice(0, 4) >= year
+                            )
                         );
                     } else {
                         //default result with descending date
-                        setResults(
-                            data.results.sort(
-                                (a, b) =>
-                                    new Date(b.releaseDate) -
-                                    new Date(a.releaseDate)
-                            )
-                        );
+                        setResults(sortDesData);
                     }
                     setIsloaded(true);
                 } catch (error) {
